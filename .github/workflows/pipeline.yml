@@ -146,8 +146,12 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'    
     environment:
-      name: AZURE-PRO        
-      url: https://fiapapp.azurewebsites.net/
+      name: 'Production'
+      url: ${{ steps.DeployAzure.outputs.webapp-url }}
+    permissions:
+      id-token: write #This is required for requesting the JWT
+      contents: read #This is required for actions/checkout
+      
     steps:
        - name: Download JAR
          uses: actions/download-artifact@v4
