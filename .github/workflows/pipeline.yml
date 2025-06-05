@@ -150,12 +150,12 @@ jobs:
          with:
            name: artifact
            path: target/   
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_0B7042F7B9964C169342945DD03FC105 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_A50B219B4329467E80C3030D29B67198 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_06A47779B05045EEB06C39015414B91B }}          
+       - name: Login to Azure
+         uses: azure/login@v2
+         with:
+           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_0B7042F7B9964C169342945DD03FC105 }}
+           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_A50B219B4329467E80C3030D29B67198 }}
+           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_06A47779B05045EEB06C39015414B91B }}          
        - name: DeployAzure   
          uses: azure/webapps-deploy@v2
          with:
